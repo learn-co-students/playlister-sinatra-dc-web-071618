@@ -1,6 +1,8 @@
+require 'pry'
 class LibraryParser
   def files
     data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
+    # binding.pry
     Dir.entries(data_path)[2..-1]
   end
 
@@ -17,7 +19,9 @@ class LibraryParser
     song   = song_match   && song_match[1]
     genre  = genre_match  && genre_match[1]
 
+
     [artist, song, genre]
+    # binding.pry
   end
 
   def call
@@ -38,3 +42,5 @@ class LibraryParser
     song.save
   end
 end
+
+# LibraryParser.new.parse_filename('Soulja Boy - Zan With That Lean [hip-hop].mp3')
